@@ -32,6 +32,17 @@ public class StudentScore {
         this.name = new StudentName("test name"); //test name
     }
 
+    /*
+    public StudentScore(StudentId sid, GcName gcName, float score, String comment, StudentName name) {
+        this.sid = sid;
+        this.gcName = gcName;
+        this.score = score; //add also max marks for the score
+        this.comment = comment;
+        // Add student name based on the student id
+        this.name = name;
+    }
+    */
+
     /**
      * Construct a StudentScore
      *
@@ -45,6 +56,15 @@ public class StudentScore {
         this.score = score;
         // Add student name based on the student id
     }
+
+    /*
+    public StudentScore(StudentId sid, GcName gcName, float score, StudentName name) {
+        this.sid = sid;
+        this.gcName = gcName;
+        this.score = score;
+        this.name = name;
+    }
+    */
 
     public StudentId getStudentId() {
         return this.sid;
