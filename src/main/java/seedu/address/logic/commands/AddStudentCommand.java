@@ -64,7 +64,7 @@ public class AddStudentCommand extends Command {
         List<GradedComponent> gradedComponents = model.getGradedComponentBook().getGradedComponentList();
         StudentScoreBook studentScoreBook = model.getStudentScoreBook();
         for (GradedComponent gradedComponent : gradedComponents) {
-            studentScoreBook.addStudentScore(new StudentScore(toAdd.getStudentId(), gradedComponent.getName(), 0));
+            studentScoreBook.addStudentScore(new StudentScore(toAdd.getStudentId(), gradedComponent, 0));
         }
 
         model.getStudentBook().addStudent(toAdd);

@@ -3,7 +3,7 @@ package seedu.address.model.studentscore;
 import java.util.Objects;
 
 import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.model.gradedcomponent.GcName;
+import seedu.address.model.gradedcomponent.GradedComponent;
 import seedu.address.model.student.StudentId;
 import seedu.address.model.student.StudentName;
 
@@ -15,7 +15,7 @@ import seedu.address.model.student.StudentName;
 public class StudentScore {
     private StudentId sid;
     private StudentName name;
-    private GcName gcName;
+    private GradedComponent gc;
     private float score;
     private String comment = "";
     /**
@@ -23,10 +23,10 @@ public class StudentScore {
      *
      * @param sid A valid student score.
      */
-    public StudentScore(StudentId sid, GcName gcName, float score, String comment) {
+    public StudentScore(StudentId sid, GradedComponent gc, float score, String comment) {
         this.sid = sid;
-        this.gcName = gcName;
-        this.score = score; //add also max marks for the score
+        this.gc = gc;
+        this.score = score;
         this.comment = comment;
         // Add student name based on the student id
         this.name = new StudentName("test name"); //test name
@@ -47,12 +47,12 @@ public class StudentScore {
      * Construct a StudentScore
      *
      * @param sid A valid student score
-     * @param gcName A valid Graded Component
+     * @param gc A valid Graded Component
      * @param score the score
      */
-    public StudentScore(StudentId sid, GcName gcName, float score) {
+    public StudentScore(StudentId sid, GradedComponent gc, float score) {
         this.sid = sid;
-        this.gcName = gcName;
+        this.gc = gc;
         this.score = score;
         // Add student name based on the student id
     }
@@ -74,8 +74,8 @@ public class StudentScore {
         return this.name;
     }
 
-    public GcName getGcName() {
-        return this.gcName;
+    public GradedComponent getGc() {
+        return this.gc;
     }
 
     public float getScore() {
@@ -96,7 +96,7 @@ public class StudentScore {
 
         return otherScore != null
                 && otherScore.getStudentId().equals(getStudentId())
-                && otherScore.getGcName().equals(getGcName());
+                && otherScore.getGc().equals(getGc());
     }
 
     /**
@@ -115,7 +115,7 @@ public class StudentScore {
         }
 
         StudentScore otherScore = (StudentScore) other;
-        return sid.equals(otherScore.sid) && gcName.equals(((StudentScore) other).gcName);
+        return sid.equals(otherScore.sid) && gc.equals(((StudentScore) other).gc);
     }
 
     @Override
@@ -129,8 +129,8 @@ public class StudentScore {
         return new ToStringBuilder(this)
                 .add("student id", sid)
                 .add("student name", name)
-                .add("component name", gcName)
-                .add("score", score)
+                .add("component", gc)
+                .add("score", score + "/" + gc.getMaxMarks())
                 .add("comment", comment)
                 .toString();
     }
