@@ -3,6 +3,8 @@ package seedu.address.model.student;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import seedu.address.model.Model;
+
 /**
  * Represents a Student's ID in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidName(String)}
@@ -34,6 +36,22 @@ public class StudentId {
         return test.matches(VALIDATION_REGEX);
     }
 
+    /**
+     * Method to convert studentId to student.
+     *
+     * @param model the system model
+     * @return a Student
+     */
+    public Student toStudent(Model model) {
+        int size = model.getStudentBook().getStudentList().size();
+        Student student = null;
+        for (int i = 0; i < size; i++) {
+            if (this.equals(model.getStudentBook().getStudentList().get(i).getStudentId())) {
+                student = model.getStudentBook().getStudentList().get(i);
+            }
+        }
+        return student;
+    }
 
     @Override
     public String toString() {

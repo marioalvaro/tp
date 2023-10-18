@@ -60,7 +60,7 @@ public class AddGradedComponentCommand extends Command {
         List<Student> students = model.getStudentBook().getStudentList();
         StudentScoreBook studentScoreBook = model.getStudentScoreBook();
         for (Student student : students) {
-            studentScoreBook.addStudentScore(new StudentScore(student.getStudentId(), toAdd.getName(), 0));
+            studentScoreBook.addStudentScore(new StudentScore(student.getStudentId(), toAdd, 0));
         }
         return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.formatGradedComponent(toAdd)));
     }

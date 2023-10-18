@@ -39,7 +39,10 @@ public class AddStudentScoreCommand extends Command {
         }
 
         model.getStudentScoreBook().addStudentScore(toAdd);
+
         // ADD to list of studentscore in students as well
+        toAdd.getStudentId().toStudent(model).addScoreToStudent(toAdd);
+
         return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.formatStudentScore(toAdd)));
     }
 }

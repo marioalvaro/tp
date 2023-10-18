@@ -12,6 +12,9 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.AddStudentScoreCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.gradedcomponent.GcName;
+import seedu.address.model.gradedcomponent.GradedComponent;
+import seedu.address.model.gradedcomponent.MaxMarks;
+import seedu.address.model.gradedcomponent.Weightage;
 import seedu.address.model.student.StudentId;
 import seedu.address.model.studentscore.StudentScore;
 
@@ -38,11 +41,14 @@ public class AddStudentScoreCommandParser implements Parser<AddStudentScoreComma
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_STUDENT_ID,
                 PREFIX_COMPONENT_NAME, PREFIX_MARKS, PREFIX_COMMENT);
         StudentId sid = new StudentId(argMultimap.getValue(PREFIX_STUDENT_ID).get());
-        GcName gcname = new GcName(argMultimap.getValue(PREFIX_COMPONENT_NAME).get());
+        GradedComponent gc = new GradedComponent(
+                new GcName(argMultimap.getValue(PREFIX_COMPONENT_NAME).get()),
+                new MaxMarks(0),
+                new Weightage(0));
         float score = Float.parseFloat(argMultimap.getValue(PREFIX_MARKS).orElse("0"));
         String comment = argMultimap.getValue(PREFIX_COMMENT).orElse("");
 
-        StudentScore studentScore = new StudentScore(sid, gcname, score, comment);
+        StudentScore studentScore = new StudentScore(sid, gc, score, comment);
         return new AddStudentScoreCommand(studentScore);
     }
 

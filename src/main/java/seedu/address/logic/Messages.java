@@ -70,9 +70,9 @@ public class Messages {
         builder.append("; Student ID: ")
                 .append(sc.getStudentId())
                 .append("; Graded component name: ")
-                .append(sc.getGcName())
+                .append(sc.getGc())
                 .append("; Score: ")
-                .append(sc.getScore());
+                .append(sc.getScore() + "/" + sc.getGc().getMaxMarks());
 
         return builder.toString();
     }

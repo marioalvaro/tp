@@ -48,7 +48,7 @@ public class DeleteGradedComponentCommand extends Command {
         StudentScoreBook studentScoreBook = model.getStudentScoreBook();
         List<StudentScore> studentScoreList = studentScoreBook.getStudentScoreList();
         for (int i = studentScoreList.size() - 1; i >= 0; i--) {
-            if (studentScoreList.get(i).getGcName().equals(gradedComponentToDelete.getName())) {
+            if (studentScoreList.get(i).getGc().getName().equals(gradedComponentToDelete.getName())) {
                 // somewhat inefficient, to change
                 studentScoreBook.removeStudentScore(studentScoreList.get(i));
             }

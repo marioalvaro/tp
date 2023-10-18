@@ -39,7 +39,8 @@ public class EditStudentScoreCommand extends Command {
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_STUDENT_SCORE = "This studentScore already "
             + "exists in the address book.";
-
+    public static final String MESSAGE_SCORE_EXCEED_MAXIMUM_MARKS = "The Score value exceeds the Maximum Marks. ";
+    public static final String MESSAGE_SCORE_IS_NEGATIVE = "The score value cannot be negative.";
     private final Index index;
     private final EditStudentScoreDescriptor editStudentScoreDescriptor;
 
@@ -84,17 +85,26 @@ public class EditStudentScoreCommand extends Command {
     }
 
     private static StudentScore createEditedStudentScore(StudentScore studentScoreToEdit,
-                                                            EditStudentScoreDescriptor editStudentScoreDescriptor) {
+                                                         EditStudentScoreDescriptor editStudentScoreDescriptor)
+            throws CommandException {
         assert studentScoreToEdit != null;
 
         float updatedScore = editStudentScoreDescriptor.getScore()
                 .orElse(studentScoreToEdit.getScore());
+
+        if (updatedScore > studentScoreToEdit.getGc().getMaxMarks().maxMarks) {
+            throw new CommandException(MESSAGE_SCORE_EXCEED_MAXIMUM_MARKS);
+        }
+
+        if (updatedScore < 0) {
+            throw new CommandException(MESSAGE_SCORE_IS_NEGATIVE);
+        }
+
         String updatedComment = editStudentScoreDescriptor.getComment()
                 .orElse(studentScoreToEdit.getComment());
 
-
         return new StudentScore(studentScoreToEdit.getStudentId(),
-                studentScoreToEdit.getGcName(), updatedScore, updatedComment);
+                studentScoreToEdit.getGc(), updatedScore, updatedComment);
     }
 
     @Override
