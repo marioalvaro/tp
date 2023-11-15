@@ -37,6 +37,8 @@ via a Command Line Interface** while still having the benefits of a Graphical Us
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## How to use this guide
 1. For the first time users we recommend to:
 
@@ -55,6 +57,8 @@ via a Command Line Interface** while still having the benefits of a Graphical Us
    * More detailed explanation of the features can be found under the [Features](#features) section.
    * An overview of all the parameters used in the commands along with their constraints and such  can be found 
      under the [Parameter Information](#parameter-information) section.
+     
+ <div style="page-break-after: always;"></div>
 
 ## Quick start
 
@@ -82,6 +86,7 @@ via a Command Line Interface** while still having the benefits of a Graphical Us
 
 6. Refer to the [Features](#features) below for details of each command.
 
+<div style="page-break-after: always;"></div>
 
 ## Parameter Information
 
@@ -465,7 +470,7 @@ Examples:
 
 ![stats](images/stats_ui.png)
 
-### Calculating statistics of a graded component : `compStats` 
+### Calculating statistics of a graded component: `compStats` 
 
 Calculates statistics of all student scores of a specific graded component.
 
