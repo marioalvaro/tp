@@ -78,6 +78,8 @@ Useful tips and additional information that helps you to make better use of Modu
    * An overview of all the parameters used in the commands along with their constraints and such  can be found 
      under the [Parameter Information](#parameter-information) section.
 
+<div style="page-break-after: always;"></div>
+
 ## Quick start
 
 1. Ensure you have Java `11` or above installed in your Computer. If you are unsure about how to verify your java version, you can refer to the [FAQ](#faq) section.
@@ -125,6 +127,7 @@ The following section gives an overview of the parameters used for the commands 
 | g/        | Tutorial group of the student | Must consist of a capital letter followed by 2 digits                      | T06, L10                                               | T1, t10, T111, @T11        |
 | t/        | Tag of the student            | Must only contain alphanumeric characters                                  | Potential TA, MakeupExam                               | 晓明, Xiao Ming@Lee, 이준      |
 
+<div style="page-break-after: always;"></div>
 
 ### Graded Component Parameters
 
@@ -134,6 +137,8 @@ The following section gives an overview of the parameters used for the commands 
 | w/        | Weightage of the graded component                         | Must be a non-negative number, including decimals, less than or equal to 100. | 0, 0.25, 20         | -0.3, 1/2, (20), 1000.8, NIL |
 | mm/       | Maximum marks for the graded component, in absolute terms | Must be a non-negative number less than or equal to 10000.                    | 0.0, 28, 100, 200.0 | -0.3, 1/2, (20), NIL         |
 
+<div style="page-break-after: always;"></div>
+
 ### Student Score Parameters
 
 | Parameter | Description                                        | Constraints                                                                                                                                  | Valid Examples             | Invalid Examples           |
@@ -142,13 +147,14 @@ The following section gives an overview of the parameters used for the commands 
 | x/        | Comments of the student score                      | Must only contain alphanumeric characters                                                                                                    | Nice work!, Check number 2 | 好的                         |
 | t/        | Tags of the student score                          | Must only contain alphanumeric characters                                                                                                    | Highest Score, Makeup Exam | @plagiarism, Highest_Score |
 
+<div style="page-break-after: always;"></div>
 
 ### Command Related Parameters
 
 
 | Parameter | Description                                                                                                                                                                                       | Constraints                                                                                                                                                                                                                    | Valid Examples                                   | Invalid Examples            |
 |-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|-----------------------------|
-| INDEX     | Used in the [delete](#delete-commands) and [edit](#edit-commands) commands, the [index](#glossary) of the target object in the currently displayed list                                           | Positive integer                                                                                                                                                                                                               | 1, 10, 21                                        | -2, 0                       |
+| INDEX     | Used in [edit commands](#edit-commands) and [delete commands](#delete-commands), The [index](#glossary) of the target student, score or component                                                 | Positive integer                                                                                                                                                                                                               | 1, 10, 21                                        | -2, 0                       |
 | o/        | Used in the [sortStu](#sorting-students-sortstu) command, the selected parameter of students to be sorted                                                                                         | Only parameters in the list (The full list can be found under the description of [sortStu](#sorting-students-sortstu) command) are allowed                                                                                     | n, totalscore, tut                               | studentName, overall score  |
 | r/        | Used in the [sortStu](#sorting-students-sortstu) and [sortStuScore](#sorting-students-scores-sortscore) commands, the reverse order (to arrange the list either in ascending or descending order) | Only parameters in the list (The full list can be found under the description of [sortStu](#sorting-students-sortstu) and [sortScore](#sorting-students-scores-sortscore) commands) are allowed                                | t, f, decreasing                                 | True, ascending             |
 | st/       | Used in the [stats](#calculating-overall-statistics-stats) and [compStats](#calculating-statistics-of-a-graded-component-compstats) commands, the statistical measures to be calculated           | Only parameters in the list (The full list can be found under the description of [stats](#calculating-overall-statistics-stats) and [compStats](#calculating-statistics-of-a-graded-component-compstats) commands) are allowed | max, upperQuartile                               | quartile, correlation       |
@@ -199,6 +205,7 @@ Here is a summary of each GUI component within ModuLight.
 | Student Score List    | Shows a list of Student Score Cards. This list can be manipulated through commands. Upon starting the app, this list will reflect all StudentsScores stored.               |
 | Student Score Card    | Displays key information about student scores such as graded component name for which the student is given the score and the student score itself.                         |
 
+<div style="page-break-after: always;"></div>
 
 ## Command Format
 
@@ -260,6 +267,8 @@ Upon successful creation of a graded component, a corresponding student score wi
 Format: `addComp c/COMP_NAME w/WEIGHTAGE mm/MAX_MARKS`
 
 Examples: `addComp c/Midterm w/30 mm/70`  adds a graded component called “Midterm” with a weightage of 30 and a maximum mark of 70.
+
+<div style="page-break-after: always;"></div>
 
 ## Edit Commands
 
@@ -331,12 +340,6 @@ Examples: `editScore 7 m/57` assigns a mark of 57 for the seventh student score 
 
 ## Delete Commands
 You can use the following commands to delete a student or graded component from the database.
-> **Note** <br>
-> 
-> Student scores will be automatically deleted when the corresponding student or component is deleted.
-> For instance, when a student is deleted, all scores that belong to this student will be deleted. They will be deleted from the graded components as well.
-=======
-Deletes a student or graded component from the database.
 
 <div markdown="1" class="alert alert-success">
 
@@ -369,6 +372,8 @@ Format: `deleteComp INDEX`
 * The index provided must be more than 0 and not exceed the number of graded components displayed in the Graded Components list.
 
 Examples: `deleteComp 2` deletes the second graded component in the displayed Graded Components List
+
+<div style="page-break-after: always;"></div>
 
 ## Find Commands
 
