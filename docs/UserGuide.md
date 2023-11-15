@@ -55,12 +55,18 @@ via a [Command Line Interface](#glossary)** while still having the benefits of a
       * We also use text with background, such as `code` to highlight text relevant to commands.
       * We use the following box to show important tips and alerts
 
-<div markdown="1" class="alert alert-primary">**:information_source: Important alert**:
+<div markdown="1" class="alert alert-primary">
+
+**:information_source: Important alert**:
 Important information that you should take note of
+
 </div>
 
-<div markdown="1" class="alert alert-success">**:bulb: Useful tips **:
+<div markdown="1" class="alert alert-success">
+
+**:bulb: Useful tips**:
 Useful tips and additional information that helps you to make better use of ModuLight
+
 </div>
 
    
@@ -135,13 +141,14 @@ The following section gives an overview of the parameters used for the commands 
 | m/        | Marks of the Student Score, in absolute terms      | Must be a non-negative number, though decimals are allowed. Cannot exceed the maximum marks of the graded component this score is related to | 0, 0.23, 30.00, 20         | -1, ⅔, 2^3, twelve         |
 | x/        | Comments of the student score                      | Must only contain alphanumeric characters                                                                                                    | Nice work!, Check number 2 | 好的                         |
 | t/        | Tags of the student score                          | Must only contain alphanumeric characters                                                                                                    | Highest Score, Makeup Exam | @plagiarism, Highest_Score |
-| INDEX     | The [index](#glossary) of the target student score | Positive integer                                                                                                                             | 1, 10, 21                  | -2, 0, 03                  |
+
 
 ### Command Related Parameters
 
 
 | Parameter | Description                                                                                                                                                                                       | Constraints                                                                                                                                                                                                                    | Valid Examples                                   | Invalid Examples            |
 |-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|-----------------------------|
+| INDEX     | Used in the [delete](#delete-commands) and [edit](#edit-commands) commands, the [index](#glossary) of the target object in the currently displayed list                                           | Positive integer                                                                                                                                                                                                               | 1, 10, 21                                        | -2, 0                       |
 | o/        | Used in the [sortStu](#sorting-students-sortstu) command, the selected parameter of students to be sorted                                                                                         | Only parameters in the list (The full list can be found under the description of [sortStu](#sorting-students-sortstu) command) are allowed                                                                                     | n, totalscore, tut                               | studentName, overall score  |
 | r/        | Used in the [sortStu](#sorting-students-sortstu) and [sortStuScore](#sorting-students-scores-sortscore) commands, the reverse order (to arrange the list either in ascending or descending order) | Only parameters in the list (The full list can be found under the description of [sortStu](#sorting-students-sortstu) and [sortScore](#sorting-students-scores-sortscore) commands) are allowed                                | t, f, decreasing                                 | True, ascending             |
 | st/       | Used in the [stats](#calculating-overall-statistics-stats) and [compStats](#calculating-statistics-of-a-graded-component-compstats) commands, the statistical measures to be calculated           | Only parameters in the list (The full list can be found under the description of [stats](#calculating-overall-statistics-stats) and [compStats](#calculating-statistics-of-a-graded-component-compstats) commands) are allowed | max, upperQuartile                               | quartile, correlation       |
@@ -161,9 +168,12 @@ The following section gives an overview of the parameters used for the commands 
    * For example, in a system with only 2 components, if component A has a weightage of 30 and component B has a weightage of 20, then component A represents 20/(20+30) = 60% of the student’s overall score. This changes as components are added or removed.
   <br> Note that the **total weightage of all graded components should not exceed 100**.
 
-<div markdown="1" class="alert alert-success">**:bulb: Useful tips **:
+<div markdown="1" class="alert alert-success">
+
+**:bulb: Useful tips**:
 > * If a graded component has a maximum mark of 0, the relative score for any associated student scores will be 0.
 > * If a student or graded component has no associated student scores, the overall score will be listed as 0.
+
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -173,7 +183,7 @@ The following section gives an overview of the parameters used for the commands 
 ModuLight comes with a GUI to allow for nice visual feedback for our users. Here is a quick run through of the different sections of our GUI, as well as some notes regarding the use of the GUI.
 
 ### Quick Orientation:
-![Ui overview](images/Ui_navigate.png)
+![Ui overview](images/Ui.png)
 
 Here is a summary of each GUI component within ModuLight.
 
@@ -205,15 +215,21 @@ Here is a summary of each GUI component within ModuLight.
 
 ## Features
 
-<div markdown="1" class="alert alert-primary">**:information_source: Important alert**:
+<div markdown="1" class="alert alert-primary">
+
+**:information_source: Important alert**:
 If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.  
+
 </div>
 
 ## Add Commands
 You can use the following commands to add a new student or graded component. 
 
-<div markdown="1" class="alert alert-success">**:bulb: Useful tips **:
+<div markdown="1" class="alert alert-success">
+
+**:bulb: Useful tips**:
 Student scores will be automatically added when a new student or component is added.
+
 </div>
 
 ### Add a student: `addStu`
@@ -322,9 +338,12 @@ You can use the following commands to delete a student or graded component from 
 =======
 Deletes a student or graded component from the database.
 
-<div markdown="1" class="alert alert-success">**:bulb: Useful tips **:
+<div markdown="1" class="alert alert-success">
+
+**:bulb: Useful tips**:
 Student scores will be automatically deleted when the corresponding student or component is deleted.
 For instance, when a student is deleted, all scores that belong to this student will be deleted. They will be deleted from the graded components as well.
+
 </div>
 
 ### Delete a student : `deleteStu`
@@ -376,10 +395,13 @@ You can use the following commands to filter and show the interested students.
 * For searching with multiple parameters of different types, it will find the objects which satisfy at least one
    criterion for each type.
 
-<div markdown="1" class="alert alert-success">**:bulb: Useful tips **:
+<div markdown="1" class="alert alert-success">
+
+**:bulb: Useful tips**:
 * If a student number of the incorrect format is given, there might be no entity found. For example, if you search findStu
    s/A00000Y, no students will be found since this is not a substring of any valid student number.<br>
 * If you would like to see the complete lists again, please use the [`listAll` command](#list-all-listall).
+
 </div>
 
 ### Find students: `findStu`
@@ -492,8 +514,11 @@ The `PASSING_VALUE` are numbers that determine the boundary for each grade
     * Value `30` given to `B`
     * Any Value below `30` will be given `F`
 
-<div markdown="1" class="alert alert-success">**:bulb: Useful tips **:
+<div markdown="1" class="alert alert-success">
+
+**:bulb: Useful tips**:
 The `autoGrade` command works on the filtered student list. This would allow for example, to grade students only compared to their own tutorial group. To automatically grade every student in the module, please use `findStu` command to display every student.
+
 </div>
 
 Example:
