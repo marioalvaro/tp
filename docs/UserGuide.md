@@ -34,9 +34,9 @@ via a [Command Line Interface](#glossary)** while still having the benefits of a
   * **[Command Summary](#command-summary)**
   * **[FAQ](#faq)**
   * **[Glossary](#glossary)**
+--------------------------------------------------------------------------------------------------------------------
 
 <div style="page-break-after: always;"></div>
---------------------------------------------------------------------------------------------------------------------
 
 ## How to use this guide
 1. For the first time users we recommend to:
@@ -311,8 +311,9 @@ Format: `editScore INDEX [m/SCORE] [x/comment] [t/tags]`
 
 Examples: `editScore 7 m/57` assigns a mark of 57 for the seventh student score in the Student Scores list.
 
+<div style="page-break-after: always;"></div>
+
 ## Delete Commands
-<<<<<<< HEAD
 You can use the following commands to delete a student or graded component from the database.
 > **Note** <br>
 > 
@@ -325,7 +326,6 @@ Deletes a student or graded component from the database.
 Student scores will be automatically deleted when the corresponding student or component is deleted.
 For instance, when a student is deleted, all scores that belong to this student will be deleted. They will be deleted from the graded components as well.
 </div>
->>>>>>> master
 
 ### Delete a student : `deleteStu`
 You can use this command to delete an existing student in the database so that you can remove students dropping the course/wrongly assigned, based on the 1-based index of the student shown in the currently visible Student list. <br>
@@ -409,6 +409,8 @@ Format: `findScore  [s/STUDENT_NO...] [n/NAME...] [e/EMAIL...] [g/TUTORIAL_GRP..
 
 Example: `findScore g/T02 c/midterm` lists all midterm scores in tutorial group T02. The graded component and student list will be emptied.
 
+<div style="page-break-after: always;"></div>
+
 ## Sort Commands
 You can use the following commands to sort the students or student scores by a given criteria.
 
@@ -458,6 +460,8 @@ Format: `sortScore c/COMP_NAME [r/REVERSE_ORDER]`
 
 Examples:
 * `sortScore c/Midterm r/true` returns the sorted students whose midterm scores are in descending order.
+
+<div style="page-break-after: always;"></div>
 
 ## Statistics and Auto Grading Commands
 ### Auto grading all the students: `autoGrade`
@@ -537,6 +541,8 @@ Examples:
 * `compStats st/upperQuartile st/lowerQuartile c/Midterm` returns the upper and lower quartile of the 
 student grades in Midterm.
 
+<div style="page-break-after: always;"></div>
+
 ## Other Commands
 ### Viewing help : `help`
 
@@ -578,7 +584,6 @@ There is no need to manually load data stored on the hard disc. It will be avail
 
 <div style="page-break-after: always;"></div>
 
---------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
 
@@ -605,6 +610,8 @@ There is no need to manually load data stored on the hard disc. It will be avail
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## FAQ
 1. **Q**: How do I transfer my data to another Computer?<br>
    **A**: You can install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous ModuLight home folder.
@@ -630,10 +637,9 @@ There is no need to manually load data stored on the hard disc. It will be avail
    * **Windows**: In Windows Search, search for terminal and select Windows Terminal from the search results.
 
 
+--------------------------------------------------------------------------------------------------------------------
 
 <div style="page-break-after: always;"></div>
-
---------------------------------------------------------------------------------------------------------------------
 
 ## Glossary
 
